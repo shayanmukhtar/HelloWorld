@@ -1,0 +1,7 @@
+//task spawn graph
+graph graphname {
+	A -> B;
+	A -> C;
+	A -> D;
+	B -> D;
+}

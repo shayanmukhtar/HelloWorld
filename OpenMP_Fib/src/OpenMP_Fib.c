@@ -12,28 +12,29 @@
 #include <stdio.h>
 #include <omp.h>
 
+#define NUM_THREADS_TO_USE		4
+#define DEFAULT_FIB_LENGTH		3
+
 int Fibonacci(int sequenceLength);
+int __kmp_omp_num_threads = NUM_THREADS_TO_USE;
+int __kmp_debugging = 1;
 
 int main(int argc, char *argv[])
 {
+	int fibLength = DEFAULT_FIB_LENGTH;
+	if (argc > 1)
+	{
+		fibLength = atoi(argv[1]);
+	}
 	//test parallel threads are building with openMP
 	int num_threads = 0;// = omp_get_num_threads();
 	int fibonacciSequence;
-	#pragma omp parallel
-	{
-		int thread_id = omp_get_thread_num();
-
-		if (thread_id == 0)
-		{
-			num_threads = omp_get_num_threads();
-		}
-		#pragma omp barrier
-		printf("Hello World from thread %d of %d\n",thread_id, num_threads);
-
-
-
-	fibonacciSequence = Fibonacci(10);
-	}     //omp parallel
+	omp_set_num_threads(NUM_THREADS_TO_USE);
+#pragma omp parallel
+{
+#pragma omp single
+	fibonacciSequence = Fibonacci(fibLength);
+}
 	printf("Fibonacci returns %d\n", fibonacciSequence);
 	return(0);
 }
@@ -47,10 +48,10 @@ int Fibonacci(int sequenceLength)
 	}
 	else
 	{
-#pragma omp task shared(x)
-		x = (sequenceLength - 1);
-#pragma omp task shared(y)
-		y = (sequenceLength - 2);
+#pragma omp task shared(x) firstprivate(sequenceLength)
+		x = Fibonacci(sequenceLength - 1);
+#pragma omp task shared(y) firstprivate(sequenceLength)
+		y = Fibonacci(sequenceLength - 2);
 #pragma omp taskwait
 		returnValue = x + y;
 	}
