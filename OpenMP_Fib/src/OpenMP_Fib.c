@@ -30,11 +30,14 @@ int main(int argc, char *argv[])
 	int num_threads = 0;// = omp_get_num_threads();
 	int fibonacciSequence;
 	omp_set_num_threads(NUM_THREADS_TO_USE);
-#pragma omp parallel
-{
-#pragma omp single
-	fibonacciSequence = Fibonacci(fibLength);
-}
+	#pragma omp parallel
+	{
+		#pragma omp single
+		{
+			fprintf( stderr, "Total Number of Shayan's Threads: %d ",omp_get_num_threads());
+			fibonacciSequence = Fibonacci(fibLength);
+		}
+	}
 	printf("Fibonacci returns %d\n", fibonacciSequence);
 	return(0);
 }
