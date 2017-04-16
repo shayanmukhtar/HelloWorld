@@ -1,28 +1,100 @@
 //task spawn graph
 digraph taskSpawn {
-	T16 -> T19;
-	T16 -> T20;
-	T19 -> T21;
-	T20 -> T22;
-	T20 -> T23;
-	T19 -> T24;
-	T22 -> T25;
-	T24 -> T26;
-	T22 -> T28;
-	T24 -> T29;
-	T21 -> T27;
-	T25 -> T30;
-	T21 -> T31;
-	T26 -> T32;
-	T31 -> T34;
-	T31 -> T36;
-	T26 -> T35;
-	T25 -> T33;
-	T23 -> T37;
-	T23 -> T38;
-	T27 -> T39;
-	T27 -> T40;
-	T39 -> T41;
-	T39 -> T42;
+	T12 -> T19 [label = " Instructions: 7681
+Cycles: 20538
+L1 Misses: 258
+"];
+	T12 -> T20 [label = " Instructions: 4863
+Cycles: 9302
+L1 Misses: 131
+"];
+	T19 -> T22 [label = " Instructions: 6374
+Cycles: 17543
+L1 Misses: 194
+"];
+	T20 -> T21 [label = " Instructions: 6347
+Cycles: 13968
+L1 Misses: 178
+"];
+	T20 -> T23 [label = " Instructions: 4882
+Cycles: 8704
+L1 Misses: 120
+"];
+	T22 -> T25 [label = " Instructions: 6367
+Cycles: 19059
+L1 Misses: 234
+"];
+	T21 -> T24 [label = " Instructions: 4867
+Cycles: 8284
+L1 Misses: 135
+"];
+	T19 -> T26 [label = " Instructions: 4952
+Cycles: 14258
+L1 Misses: 176
+"];
+	T21 -> T27 [label = " Instructions: 4867
+Cycles: 7945
+L1 Misses: 135
+"];
+	T23 -> T28 [label = " Instructions: 4930
+Cycles: 10630
+L1 Misses: 151
+"];
+	T26 -> T29 [label = " Instructions: 4895
+Cycles: 11907
+L1 Misses: 137
+"];
+	T22 -> T30 [label = " Instructions: 4922
+Cycles: 14507
+L1 Misses: 182
+"];
+	T24 -> T31 [label = " Instructions: 4027
+Cycles: 8231
+L1 Misses: 118
+"];
+	T26 -> T32 [label = " Instructions: 4959
+Cycles: 10515
+L1 Misses: 150
+"];
+	T24 -> T34 [label = " Instructions: 4867
+Cycles: 8208
+L1 Misses: 126
+"];
+	T23 -> T33 [label = " Instructions: 4959
+Cycles: 10515
+L1 Misses: 150
+"];
+	T30 -> T35 [label = " Instructions: 4923
+Cycles: 16235
+L1 Misses: 201
+"];
+	T29 -> T36 [label = " Instructions: 4073
+Cycles: 9881
+L1 Misses: 144
+"];
+	T29 -> T37 [label = " Instructions: 4895
+Cycles: 13130
+L1 Misses: 158
+"];
+	T30 -> T38 [label = " Instructions: 4922
+Cycles: 12252
+L1 Misses: 155
+"];
+	T25 -> T39 [label = " Instructions: 4069
+Cycles: 8747
+L1 Misses: 127
+"];
+	T25 -> T40 [label = " Instructions: 4094
+Cycles: 9303
+L1 Misses: 138
+"];
+	T39 -> T41 [label = " Instructions: 4055
+Cycles: 9556
+L1 Misses: 132
+"];
+	T39 -> T42 [label = " Instructions: 4073
+Cycles: 12351
+L1 Misses: 176
+"];
 
 }

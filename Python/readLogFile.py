@@ -26,6 +26,17 @@ def GetTaskIDString(string, index):
 		returnValue = ConvertToInt(string[index:index+3])
 	return returnValue
 
+#pass starting index of "PAPI Information"
+def GetPAPIInformation(string, index):
+	returnValue = ""
+	returnValue = string[index + len("PAPI Information:"):]
+	CyclePos = returnValue.find("Cycles:")
+	L1Pos = returnValue.find("L1 Misses:")
+	returnValue = returnValue[0:CyclePos-1] + "\n" + returnValue[CyclePos:L1Pos-1] + "\n" + returnValue[L1Pos:]
+	return returnValue
+
+
+
 logFile = open("test.txt","r")
 outString = ""
 outStringTaskSpawn = ""
@@ -39,7 +50,9 @@ for currentLine in logFile:
 		#form single line relationship between parent task and child task
 		outStringTaskSpawnCurrent = "T" + GetTaskIDString(currentLine,stringPosPTID + 23)
 		outStringTaskSpawnCurrent += " -> "
-		outStringTaskSpawnCurrent +=  "T" + GetTaskIDString(currentLine,stringPosCID + 20)
+		outStringTaskSpawnCurrent +=  "T" + GetTaskIDString(currentLine,stringPosCID + 20) + " "
+		PapiString = GetPAPIInformation(currentLine, currentLine.find("PAPI Information"))
+		outStringTaskSpawnCurrent += "[label = \"" + PapiString + "\"]"
 		outStringTaskSpawnCurrent += ";\n"
 		outStringTaskSpawn += "\t" + outStringTaskSpawnCurrent
 
