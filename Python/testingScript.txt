@@ -1,57 +1,22 @@
 Thread 0 creates task 19
-Thread 0 creates task 20
-Thread 2 stole task 20 from thread 0
-Thread 2 begins executing task 20
-Thread 1 stole task 19 from thread 0
-Thread 1 begins executing task 19
-Thread 1 creates task 22
-Thread 3 stole task 22 from thread 1
-Thread 3 begins executing task 22
+Thread 2 stole task 19 from thread 0
+Thread 2 begins executing task 19
 Thread 2 creates task 21
-Thread 0 stole task 21 from thread 2
-Thread 0 begins executing task 21
-Thread 2 creates task 23
+Thread 1 stole task 21 from thread 2
+Thread 1 begins executing task 21
+Thread 0 creates task 20
+Thread 2 creates task 22
+Thread 2 begins executing task 22
+Thread 1 creates task 23
+Thread 0 begins executing task 20
+Thread 3 stole task 23 from thread 1
+Thread 3 begins executing task 23
 Thread 0 creates task 24
-Thread 2 begins executing task 23
-Thread 1 creates task 26
-Thread 1 begins executing task 26
-Thread 3 creates task 25
-Thread 0 creates task 27
-Thread 0 begins executing task 27
-Thread 0 begins executing task 24
-Thread 1 creates task 29
-Thread 2 creates task 28
-Thread 0 creates task 31
-Thread 3 creates task 30
-Thread 1 creates task 32
-Thread 1 begins executing task 32
-Thread 0 creates task 34
-Thread 2 creates task 33
-Thread 2 begins executing task 33
-Thread 3 begins executing task 30
-Thread 2 begins executing task 28
-Thread 0 begins executing task 34
-Thread 0 begins executing task 31
-Thread 1 begins executing task 29
-Thread 3 creates task 35
-Thread 1 creates task 36
-Thread 3 creates task 38
-Thread 3 begins executing task 38
-Thread 2 stole task 25 from thread 3
-Thread 2 begins executing task 25
-Thread 1 creates task 37
-Thread 1 begins executing task 37
-Thread 1 begins executing task 36
-Thread 2 creates task 39
-Thread 1 stole task 39 from thread 2
-Thread 1 begins executing task 39
-Thread 3 begins executing task 35
-Thread 2 creates task 40
-Thread 1 creates task 41
-Thread 3 stole task 41 from thread 1
-Thread 3 begins executing task 41
-Thread 0 stole task 40 from thread 2
-Thread 0 begins executing task 40
-Thread 1 creates task 42
-Thread 1 begins executing task 42
+Thread 1 creates task 25
+Thread 1 begins executing task 25
+Thread 3 stole task 24 from thread 0
+Thread 3 begins executing task 24
+Thread 0 creates task 26
+Thread 2 stole task 26 from thread 0
+Thread 2 begins executing task 26
 Total threads were: 4

@@ -56,6 +56,14 @@ def getStdIntFromString(string, index, size):
 		returnValue = ConvertToInt(string[index:index+size])
 	return returnValue
 
+#pass starting index of "PAPI Information"
+def GetPAPIInformation(string, index):
+	returnValue = ""
+	returnValue = string[index + len("PAPI Information:"):]
+	CyclePos = returnValue.find("Cycles:")
+	L1Pos = returnValue.find("L1 Misses:")
+	returnValue = returnValue[0:CyclePos-1] + "\n" + returnValue[CyclePos:L1Pos-1] + "\n" + returnValue[L1Pos:]
+	return returnValue
 ################ ANIMATION FUNCTIONS ############################
 def pushTaskToDeque(currentThread, task):
 	LabelTaskHandles[currentThread].append(ThreadTaskHandles[currentThread])
@@ -146,6 +154,7 @@ def runLogParser(logFile, outputLogfile):
 			currentTask = getStdIntFromString(currentLine, stringPosGTID + len("My_GTID = ") - 1, 3)
 			outputLogfile.write("Thread " + currentThread + " creates task " + currentTask + "\n")
 			pushTaskToDeque(int(currentThread),int(currentTask))
+			print("Task creation:" + GetPAPIInformation(currentLine,currentLine.find("PAPI Information")))
 			try:
 				input("Press enter to continue")
 			except SyntaxError:
@@ -160,6 +169,7 @@ def runLogParser(logFile, outputLogfile):
 			stringPosStolenThread = currentLine.find("from T#")
 			stolenThreadID = getStdIntFromString(currentLine, stringPosStolenThread + len("from T#"), 2)
 			outputLogfile.write("Thread " + currentThread + " stole task " + stolenTaskID + " from thread " + stolenThreadID + "\n")
+			print("Task Stealing: " + GetPAPIInformation(currentLine,currentLine.find("PAPI Information")))
 			stealTaskFromDeque(int(currentThread), int(stolenThreadID), int(stolenTaskID))
 			try:
 				input("Press enter to continue")
